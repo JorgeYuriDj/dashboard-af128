@@ -1,0 +1,12 @@
+# Nunca enviar credenciais para o GitHub
+.streamlit/secrets.toml
+
+# Arquivos temporários
+__pycache__/
+*.pyc
+*.pyo
+*.log
+~$*
+
+# Excel local (não vai para o cloud)
+*.xlsx
