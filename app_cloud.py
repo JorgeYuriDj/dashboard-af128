@@ -181,8 +181,9 @@ def main():
     try:
         vendedores, kpis, hoje, dias_mes = carregar_dados()
     except Exception as e:
-        st.error(f"❌ Erro ao conectar com Google Sheets: {e}")
-        st.info("Verifique as credenciais em `.streamlit/secrets.toml`")
+        import traceback
+        st.error(f"❌ Erro ao conectar com Google Sheets: [{type(e).__name__}] {e}")
+        st.code(traceback.format_exc())
         return
 
     fat_total = kpis["fat_total"]
