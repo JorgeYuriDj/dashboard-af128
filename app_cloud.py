@@ -7,8 +7,8 @@ from datetime import datetime, date
 import json
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────────
-# Nome da planilha no Google Sheets (deve ser exatamente igual)
-NOME_PLANILHA = "ACOMPANHAMENTO AF128"
+# ID da planilha no Google Sheets (da URL: /spreadsheets/d/{ID}/edit)
+ID_PLANILHA = "1n_5bYyusiKQmce_Vvu7eq5gq8arMvsomvb4yKoHGcKw"
 
 # Metas da campanha (do regulamento AFEET 2026)
 META_COLETIVA     = 325_159.91
@@ -32,7 +32,7 @@ def conectar_sheets():
 @st.cache_data(ttl=60)
 def carregar_dados():
     gc     = conectar_sheets()
-    sh     = gc.open(NOME_PLANILHA)
+    sh     = gc.open_by_key(ID_PLANILHA)
 
     # ── Aba VENDEDORES ──────────────────────────────────────────────────────
     ws_v   = sh.worksheet("VENDEDORES")
